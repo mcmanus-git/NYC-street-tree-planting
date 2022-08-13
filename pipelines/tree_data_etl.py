@@ -44,7 +44,7 @@ def load_tree_data(save=True, return_data=True):
     :return: Pandas DataFrame
     """
     today = datetime.now()
-    today_file = f'../data/street_tree_planting_{today.strftime("%Y_%m_%d")}.pkl'
+    today_file = f'data/street_tree_planting_{today.strftime("%Y_%m_%d")}.pkl'
 
     if os.path.exists(today_file):
         df = pd.read_pickle(today_file)
@@ -52,13 +52,13 @@ def load_tree_data(save=True, return_data=True):
     elif not os.path.exists(today_file):
         most_recent_web = get_most_recent_upload_date()
         if most_recent_web < today:
-            most_recent_file = f'../data/street_tree_planting_{most_recent_web.strftime("%Y_%m_%d")}.pkl'
+            most_recent_file = f'data/street_tree_planting_{most_recent_web.strftime("%Y_%m_%d")}.pkl'
             if os.path.exists(most_recent_file):
                 df = pd.read_pickle(most_recent_file)
             elif not os.path.exists(most_recent_file):
                 df = download_new_data()
                 if save:
-                    df.to_pickle(f'../data/street_tree_planting_{most_recent_web.strftime("%Y_%m_%d")}.pkl')
+                    df.to_pickle(f'data/street_tree_planting_{most_recent_web.strftime("%Y_%m_%d")}.pkl')
         elif most_recent_web == today:
             df = get_most_recent_upload_date()
             if save:
