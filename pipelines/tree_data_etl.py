@@ -1,9 +1,5 @@
 import pandas as pd
 from urllib import request
-import folium
-from folium.plugins import TimestampedGeoJson
-import json
-from geojson import dump
 from datetime import datetime
 import os
 
