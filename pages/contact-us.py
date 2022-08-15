@@ -19,8 +19,10 @@ in Michigan, U.S. His work focuses on electric grid reliability and resiliency a
 outages. Michael graduated from the University of Michigan School of Information with a Master's Degree in Applied Data 
 Science in May of 2022. Michael loves all things data and is constantly looking for new opportunities to do good with 
 his Data Science skills and leave the world better than he found it.  
-  
-"Information Changes Everything" - UMSI.
+
+>  
+>  "Information Changes Everything" - UMSI.  
+>  
 """)
 
 other_projects_header = html.H4('Other Projects', style={'textAlign': 'center', 'margin': '0% 0% 5% 0%'})
