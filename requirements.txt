@@ -8,7 +8,6 @@ flask-compress
 gunicorn==20.1.0
 ipython
 matplotlib
-pandas==1.4.1
-sqlalchemy==1.4.27
+pandas
 h3-py
 keplergl
