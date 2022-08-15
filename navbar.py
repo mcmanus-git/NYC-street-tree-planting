@@ -6,20 +6,16 @@ from dash import dcc
 def create_navbar():
     navbar = dbc.NavbarSimple(
         children=[
-            dbc.NavItem(dbc.NavLink([html.I(className="fab fa-facebook")],
-                                    href="https://www.facebook.com/HDBestimate/",
+            dbc.NavItem(dbc.NavLink([html.I(className="fab fa-github")],
+                                    href="https://github.com/mcmanus-git",
                                     target="_blank")
                         ),
-            dbc.NavItem(dbc.NavLink([html.I(className="fab fa-instagram")],
-                                    href="https://www.instagram.com/hdbestimate/",
-                                    target="_blank")
-                        ),
-            dbc.NavItem(dbc.NavLink([html.I(className="fab fa-twitter")],
-                                    href="https://twitter.com/HDBestimate",
+            dbc.NavItem(dbc.NavLink([html.I(className="fab fa-medium")],
+                                    href="https://medium.com/@mcmanus_data_works",
                                     target="_blank")
                         ),
             dbc.NavItem(dbc.NavLink([html.I(className="fab fa-linkedin")],
-                                    href="https://www.linkedin.com/company/hdbestimate/",
+                                    href="https://www.linkedin.com/in/michael-mcmanus/",
                                     target="_blank")
                         ),
             dbc.DropdownMenu(
@@ -29,8 +25,7 @@ def create_navbar():
                 children=[
                     dbc.DropdownMenuItem("Home", href='/'),
                     dbc.DropdownMenuItem(divider=True),
-                    # dbc.DropdownMenuItem("Blog", href='/blog'), # commented out until we can revisit the blog
-                    dbc.DropdownMenuItem("Explore", href='/explore'),
+                    dbc.DropdownMenuItem("About", href='/about'),
                     dbc.DropdownMenuItem("Contact Us", href='/contact-us'),
                 ],
             ),
@@ -38,7 +33,6 @@ def create_navbar():
         brand="NYC Street Trees",
         brand_href="/",
         sticky="top",
-        # color='#D91800',
         color="primary",  # Change this to change color of the navbar e.g. "primary", "secondary", "dark" etc.
         dark=True,  # Change this to change color of text within the navbar (False for dark text)
     )
