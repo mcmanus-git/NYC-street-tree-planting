@@ -19,7 +19,7 @@ Hierarchical Spatial Index](https://www.uber.com/blog/h3/), better known as H3. 
 colleague showed how this spacial index would be invaluable to us. I was instantly impressed with how easily geospatial 
 analysis became using this grid system which was a heavy part of the project we were working on. What made things even 
 more exciting was this colleague used [Kepler.gl](https://kepler.gl/) to show off the benefits of H3. The only thing 
-missing from the presentation was how we could use these libraries and tools programmatically as my colleage was 
+missing from the presentation was how we could use these libraries and tools programmatically as my colleague was 
 dragging csv files into Kepler UI to show case how we could make use of these tools. So, I set out how to learn H3 and 
 Kepler.gl.   """)
 
