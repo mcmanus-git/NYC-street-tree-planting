@@ -54,8 +54,7 @@ app.layout = dcc.Loading(
             ]
         )
     ],
-    # type='cube',
-    # color='#4ABF72',
+    color='#333B52',
     fullscreen=True
 )
 

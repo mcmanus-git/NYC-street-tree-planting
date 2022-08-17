@@ -78,6 +78,11 @@ contact_links = html.Div(
 
 def layout():
 
+    """
+    Generates contact-us page html
+    :return: HTML/Dash Object(s)
+    """
+
     layout = html.Div(
         [
             creator_header,

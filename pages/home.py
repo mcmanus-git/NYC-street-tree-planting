@@ -1,7 +1,5 @@
-from dash import html, dcc, callback, Input, Output, State
+from dash import html, dcc
 import dash
-import dash_bootstrap_components as dbc
-import pickle
 from map_helpers import create_tree_count_map_html
 
 dash.register_page(
@@ -14,7 +12,13 @@ dash.register_page(
 
 def layout():
 
+    """
+    Generates home page html
+    :return: HTML/Dash Object(s)
+    """
+
     map_filename = create_tree_count_map_html()
+    dt_parts = map_filename.strip('.html').split('_')[-3:]
 
     kepler_n_trees_map = html.Iframe(
         srcDoc=open(map_filename, 'r').read(),
@@ -24,7 +28,15 @@ def layout():
 
     layout = html.Div(
         [
-            kepler_n_trees_map
+            kepler_n_trees_map,
+            dcc.Markdown(f"[Data](https://www.nycgovparks.org/trees/street-tree-planting/locations) "
+                         f"Updated as of {dt_parts[1]}/{dt_parts[2]}/{dt_parts[0]}", style={'fontSize': 10}),
+            dcc.Markdown(f"""This map shows where the 
+            [NYC Street Tree Planting initiative](https://www.nycgovparks.org/trees/street-tree-planting) 
+            has planted trees. The number of trees planted in each area is indicated by the height and color of the 
+            hexagons on the map. For more information please see our [About](/about) page. The toggle in the upper left
+            corner of the map will allow you to explore the data more thoroughly and the settings of the map can be 
+            tuned to your preference.""")
         ],
         style={'margin': '5% 5% 5% 5%'}
     )
