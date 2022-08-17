@@ -31,12 +31,11 @@ def layout():
             kepler_n_trees_map,
             dcc.Markdown(f"[Data](https://www.nycgovparks.org/trees/street-tree-planting/locations) "
                          f"Updated as of {dt_parts[1]}/{dt_parts[2]}/{dt_parts[0]}", style={'fontSize': 10}),
-            dcc.Markdown(f"""This map shows where the 
-            [NYC Street Tree Planting initiative](https://www.nycgovparks.org/trees/street-tree-planting) 
-            has planted trees. The number of trees planted in each area is indicated by the height and color of the 
-            hexagons on the map. For more information please see our [About](/about) page. The toggle in the upper left
-            corner of the map will allow you to explore the data more thoroughly and the settings of the map can be 
-            tuned to your preference.""")
+            dcc.Markdown(f"""This map shows where the trees have been planted through the 
+            [NYC Street Tree Planting initiative](https://www.nycgovparks.org/trees/street-tree-planting). The number 
+            of trees planted in each area is indicated by the height and color of the hexagons on the map. For more 
+            information please see our [About](/about) page. The toggle in the upper left corner of the map will allow 
+            you to explore the data more thoroughly and the settings of the map can be tuned to your preference.""")
         ],
         style={'margin': '5% 5% 5% 5%'}
     )
