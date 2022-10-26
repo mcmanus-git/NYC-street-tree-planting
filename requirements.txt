@@ -11,3 +11,4 @@ matplotlib
 pandas
 h3
 keplergl
+requests
