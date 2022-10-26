@@ -2,6 +2,7 @@ import pandas as pd
 from urllib import request
 from datetime import datetime
 import os
+import requests
 
 
 def get_most_recent_upload_date():
@@ -9,9 +10,16 @@ def get_most_recent_upload_date():
     Fetches most recent data update from NYC Street Tree Planting csv dataset via url
     :return: datetime object YYYY-MM-DD HH:MM:SS - most recent date NYC Street Tree Planting data was updated
     """
-    r = request.urlopen('https://www.nycgovparks.org/tree-work-orders/street_tree_planting.csv')
 
-    last_build_date = r.readlines()[5].decode('utf-8').split(',')[1].strip('\n')
+    header = {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36" ,
+        'referer':'https://www.google.com/'
+    }
+
+    r = request.Request('https://www.nycgovparks.org/tree-work-orders/street_tree_planting.csv', headers=header)
+    response = request.urlopen(r)
+
+    last_build_date = response.readlines()[5].decode('utf-8').split(',')[1].strip('\n')
 
     last_build_date = datetime.strptime(last_build_date.strip('"'), '%Y-%m-%d %H:%M:%S')
 
@@ -23,7 +31,18 @@ def download_new_data():
     Downloads new csv dataset from url and returns clean version in Pandas DataFrame
     :return: Pandas DataFrame
     """
-    df = pd.read_csv('https://www.nycgovparks.org/tree-work-orders/street_tree_planting.csv', skiprows=7)
+    header = {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36" ,
+        'referer':'https://www.google.com/'
+    }
+
+    req = requests.get('https://www.nycgovparks.org/tree-work-orders/street_tree_planting.csv', headers=header)
+    content = req.content
+
+    with open('./data/street_tree_planting.csv', 'wb') as f:
+        f.write(content)
+
+    df = pd.read_csv('./data/street_tree_planting.csv', skiprows=7)
     df['CompletedDate'] = pd.to_datetime(df['CompletedDate'])
     df['PlantingSeason'] = pd.to_datetime(df['PlantingSeason'])
 
