@@ -54,12 +54,11 @@ app.layout = dcc.Loading(
             ]
         )
     ],
-    # type='cube',
-    # color='#4ABF72',
+    color='#333B52',
     fullscreen=True
 )
 
 server = app.server
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)

@@ -6,6 +6,12 @@ import os
 
 
 def tree_count_map_config():
+
+    """
+    Creates configuration dictionary for number of tree kepler map loading state
+    :return: Dictionary
+    """
+
     config = {
         "version": "v1", "config": {
             "visState": {
@@ -113,6 +119,14 @@ def tree_count_map_config():
 
 
 def create_tree_count_map(tree_counts_df, filename):
+
+    """
+    Takes in NYC tree planting dataset dataframe, saves html created by KeplerGL, and returns KeplerGL map object
+    :param tree_counts_df: Pandas Dataframe containing hex_id (H3 Hex ID) and value (number of trees) columns
+    :param filename: String filename for html save data/kepler_n_trees_{today.strftime("%Y_%m_%d")}.html
+    :return: KeplerGL map object
+    """
+
     config_dict = tree_count_map_config()
 
     map_1 = KeplerGl(config=config_dict, height=600)
@@ -126,11 +140,21 @@ def create_tree_count_map(tree_counts_df, filename):
 
 
 def geo_to_h3(row):
+    """
+    Helper function to fetch H3 Hex ID from Latitude and Longitude columns in Pandas Dataframe
+    :param row: Pandas Dataframe columns 'lat' and 'lng'
+    :return: String - H3 Hex ID
+    """
     h3_res = 8
     return h3.geo_to_h3(lat=row.lat, lng=row.lng, resolution=h3_res)
 
 
 def create_tree_count_map_html():
+    """
+    Sequence function - Check if KeplerGL map html exists for most recent data pull > If exists no update >
+    If not exists > generates KeplerGL map and saves as html
+    :return: String - Filename of most recent n_trees map containing most up-to-date data
+    """
     today = datetime.now()
     today_file = f'data/kepler_n_trees_{today.strftime("%Y_%m_%d")}.html'
 
