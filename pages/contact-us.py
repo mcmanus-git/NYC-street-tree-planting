@@ -14,7 +14,7 @@ line_break = html.Div([dcc.Markdown("""___""")], style={'margin': '5% 0% 5% 0%'}
 
 creator_header = html.H1('About the Creator', style={'textAlign': 'center', 'margin': '10% 0% 5% 0%'})
 contact_creator_header = html.H4('-   Contact Me   -', style={'textAlign': 'center'})
-about_the_creator = dcc.Markdown("""Michael McManus is a Senior Data Analyst for a regulated gas and electric utility 
+about_the_creator = dcc.Markdown("""Michael McManus is a Senior Data Scientist for a regulated gas and electric utility 
 in Michigan, U.S. His work focuses on electric grid reliability and resiliency as it relates to forestry related power 
 outages. Michael graduated from the University of Michigan School of Information with a Master's Degree in Applied Data 
 Science in May of 2022. Michael loves all things data and is constantly looking for new opportunities to do good with 
