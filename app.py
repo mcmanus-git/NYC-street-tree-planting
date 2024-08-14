@@ -11,13 +11,13 @@ from navbar import create_navbar
 
 navbar = create_navbar()
 FA47 = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
-FA512 = "https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+FA621 = "https://use.fontawesome.com/releases/v6.2.1/css/all.css"
 
 app = dash.Dash(__name__,
                 suppress_callback_exceptions=True,
                 external_stylesheets=[dbc.themes.FLATLY,
                                       FA47,
-                                      FA512,
+                                      FA621,
                                       ],
                 use_pages=True,
                 )
